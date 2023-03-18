@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Total rehaul of my landing page, using NEXT.js
+    Make sure to include Quizy (when done), parking-app(needs to be deployed, demo video), gtApp(demo), client: Galazy Farm (w login), client: @rayshotthis (back end implemented, add login and cloudflare to upload photos), client: gilq (convert to react.js), what im working on(WebRTC app description)
+
 First, run the development server:
 
 ```bash

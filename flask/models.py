@@ -12,16 +12,18 @@ class Project(db.Model):
     title = db.Column(db.String(80), unique=True, nullable=False)
     desc = db.Column(db.Text, unique=False, nullable=True )
     stack = db.Column(db.String, unique=False, nullable=True)
+    image = db.Column(db.String, unique=False, nullable = True)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
     # This is regular old Python classes
     # Right here is where we "whitelist" what can be set when creating a user
     # any column omitted cannot be set by the user/app manually
-    def __init__(self, title, desc, stack):
+    def __init__(self, title, desc, stack, image):
         self.title = title
         self.desc = desc
-        self.stack = stack 
+        self.stack = stack
+        self.image = image
 
     def to_dict(self):
         return {
@@ -29,6 +31,7 @@ class Project(db.Model):
             'title': self.title,
             'desc': self.desc,
             'stack': self.stack,
+            'image': self.image,
             'created_at': self.created_at
         }
 

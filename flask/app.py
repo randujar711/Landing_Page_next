@@ -25,17 +25,6 @@ def home():
     return send_file('welcome.html')
 
 
-@app.get('/example')
-def example():
-    return {'message': 'Your app is running Python'}
-
-
-@app.get('/info')
-def info():
-    print(dir(platform))
-    return {'machine': platform.node()}
-
-
 @app.get('/projects')
 def projects():
     projects = Project.query.all()

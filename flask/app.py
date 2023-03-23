@@ -3,7 +3,7 @@ from flask import Flask, send_file, request, jsonify
 from flask_migrate import Migrate
 from flask_cors import CORS
 from config import Config
-from models import db, Projects
+from models import db, Project
 from pprint import pprint
 from flask_socketio import SocketIO, emit
 import platform
@@ -38,9 +38,10 @@ def info():
 
 @app.get('/projects')
 def projects():
-    projects = Projects.query.all()
-    project_list = [project.to_dict for project in projects]
-    return jsonify(project_list), 201
+    projects = Project.query.all()
+    print (projects)
+    project_list = [project.to_dict() for project in projects]
+    return jsonify([project_list]), 201
 
 
 
@@ -66,4 +67,4 @@ def disconnected():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=os.environ.get('PORT', 5000))
+    socketio.run(app, host='0.0.0.0', port=os.environ.get('PORT', 3001))

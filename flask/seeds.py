@@ -1,25 +1,16 @@
 from app import app
-from models import db, User, Post
-from faker import Faker
+from models import db, Project
 
 def run_seeds():
-    fake = Faker()
     print('Seeding database ... 🌱')
     # Add your seed data here
     with app.app_context():
-      user1 = User('rmdashrfv', 'rmdashrfv@example.com', '111111111')
-      user2 = User('mikegpt', 'mikegpt@example.com', '22222222')
-      user3 = User('flyinggeese', 'flyinggeese@example.com', '33333333')
-      db.session.add_all([user1, user2, user3])
+      project1 = Project('GalaxyFarm', 'Working on galaxy farm was decently interesting as I continued to develop my bootstrap skills. I used it as a sandbox to develop my bootstrap skills. Check it out!', 'Bootstrap & Javascript')
+      project2 = Project('@RayShotThis', 'One of my first projects was for a local photographer who needed to officially display his work. I managed to use an image slider and implement a grid with hover effects over the images.', 'Bootstrap & Javascript')
+      project3 = Project('GilqProductions', 'GilqProductions is a do it all artist whose skills range from comedic videos to graphic design.', 'Bootstrap, CSS')
+      db.session.add_all([project1, project2, project3])
       db.session.commit()
-      user = User.query.first()
-      seeded_posts = []
-      for _ in range(5):
-        post = Post(fake.text())
-        post.user_id = user.id
-        seeded_posts.append(post)
-      db.session.add_all(seeded_posts)
-      db.session.commit()
+      print (project1) 
       print('Done! 🌳')
 
 run_seeds()

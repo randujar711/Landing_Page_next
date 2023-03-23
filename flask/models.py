@@ -5,7 +5,7 @@ db = SQLAlchemy() # create an instance of a database connection
 migrate = Migrate(db) # associate migration functions to it
 
 # This ORM has the migration and the model together
-class Projects(db.Model):
+class Project(db.Model):
     # This is the migration part
     __tablename__ = 'projects'
     id = db.Column(db.Integer, primary_key=True)

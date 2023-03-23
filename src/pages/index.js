@@ -6,11 +6,13 @@ import styles from '@/styles/Home.module.css'
 import Script from 'next/script'
 
 export default function Home() {
+  let link = styles.link
   return (
     <div className={styles.div}>
-      <div id="particles-js">hello</div>
-      <Link href='/testpage.js'>Go to test page</Link>
-      <Script src=''/>
+      <ul className={styles.ul}>
+        <li><Link className={link} href='/portfolio'>Portfolio</Link></li>
+        <li><Link className={link} href='/contact'>Contact</Link></li>
+      </ul>
     </div>
   )
 }

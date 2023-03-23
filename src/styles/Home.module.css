@@ -1,4 +1,13 @@
 .div{
-  background-color: aqua;
-  color: azure;
+  /* background-color: aqua; */
+  color: red;
+}
+.ul{
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.link{
+  text-decoration: none;
+  color: #000;
 }

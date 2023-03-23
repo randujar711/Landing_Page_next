@@ -1,5 +1,5 @@
 import Image from "next/image"
-const portfolioCard = () => {
+const PortfolioCard = ({projects}) => {
     return(
         <div>
             {projects[0].map((prod)=> {
@@ -16,12 +16,5 @@ const portfolioCard = () => {
         </div>
     )
 }
-export async function getServerSideProps(){
-  // const [port, setPort] = useState([])
-  const res = await fetch('http://127.0.0.1:3001/projects')
-  const projects = await res.json()
 
-  return {props: {projects}}
-}
-
-export default portfolioCard
+export default PortfolioCard
